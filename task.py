@@ -3,10 +3,22 @@
 # libraries
 import Browser
 import time
+import os
 
 # variables
 browser = Browser.Browser()
 url = "http://rpachallenge.com/" #"https://usyd.starrezhousing.com/StarRezWeb/"
+
+def download_order_file():
+    print("___attemting to download order file___")
+    browser.new_context(acceptDownloads=True)
+    browser.new_page()
+    order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
+    os.replace(order_file_download, ".\\orderFile.csv")
+    browser.close_browser()
+    print("___order file downloaded___")
+    print()
+    return(order_file_download)
 
 
 def open_the_website(url: str):
@@ -33,18 +45,22 @@ def complete_form():
 
 
 def end_session():
-    print("END SESSION")
-    browser.close_browser()
-
+    browser.close_page()
+    nothing = 1 + 1
 
 if __name__ == "__main__":
     try:
-        open_the_website(url)
-        complete_form()
-        print("COMPLETED: All tasks completed")
+        print('STARTED: session started')
+        print()
+        download_order_file()
+        #open_the_website(url)
+        #complete_form()
+        print()
+        print("COMPLETED: all tasks completed")
     except Exception as err:
-        print('''TERMINATED: error message= "''' + str(err) + '''"''')
+        print('''TERMINATED: failed with error message= "''' + str(err) + '''"''')
     finally:
+        print("ENDED: session ended")
         end_session()
 
 

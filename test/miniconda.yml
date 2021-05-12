@@ -1,0 +1,7 @@
+name: myenv
+
+dependencies:
+  - python=3.4
+  - Browser
+  - pip:
+    - robotframework-browser==2.3.3
