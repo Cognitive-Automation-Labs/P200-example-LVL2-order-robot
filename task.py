@@ -20,7 +20,6 @@ def download_order_file():
     print()
     return(order_file_download)
 
-
 def open_the_website(url: str):
     browser.open_browser(url)
 
