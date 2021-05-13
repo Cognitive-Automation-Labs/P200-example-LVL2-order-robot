@@ -1,14 +1,16 @@
 """Template robot with Python."""
 
 # libraries
+from typing import final
 import Browser
-from RPA.Dialogs import Dialogs
+import RPA.Robocloud.Secrets
+import RPA.dialogs
 import time
 import os
 
 # variables
 browser = Browser.Browser()
-url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
+url = "http://rpachallenge.com/" #"https://usyd.starrezhousing.com/StarRezWeb/"
 
 def download_order_file():
     print("___attemting to download order file___")
@@ -22,11 +24,7 @@ def download_order_file():
     return(order_file_download)
 
 def confirm_constitution_response():
-    dialogs = Dialogs()
-    dialogs.create_form()
-    dialogs.add_text_input(label="Let us know your thoughts?", name="hello world")
-    dialogs.request_response()
-
+    create_form(title="Constitution Response Form")
 
 def open_the_website(url: str):
     browser.open_browser(url)
@@ -64,9 +62,8 @@ if __name__ == "__main__":
     try:
         print('STARTED: session started')
         print()
-        #download_order_file()
-        confirm_constitution_response()
-        #open_the_website(url)
+        download_order_file()
+        open_the_website(url)
         #complete_form()
         print()
         print("COMPLETED: all tasks completed")

@@ -1,4 +1,1 @@
-{"level":30,"time":"2021-05-12T21:26:27.104Z","pid":24808,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 51257"}
-{"level":30,"time":"2021-05-12T21:26:28.465Z","pid":24808,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
-{"level":30,"time":"2021-05-12T21:26:28.618Z","pid":24808,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
-{"level":30,"time":"2021-05-12T21:26:28.619Z","pid":24808,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-13T22:06:20.713Z","pid":62964,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 53628"}

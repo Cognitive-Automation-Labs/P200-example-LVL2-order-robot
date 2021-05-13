@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "task.py", line 4, in <module>
+    from typing import final
+ImportError: cannot import name 'final' from 'typing' (C:\Users\bunto\AppData\Local\robocorp\live\5b6eac2758538785\lib\typing.py)
