@@ -5,18 +5,20 @@ import Browser
 from RPA.Dialogs import Dialogs
 import time
 import os
+import csv
 
 # variables
 url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
+order_form_filename = "orderFile.csv"
 
-def download_order_file():
+def download_order_file(filename: str):
     try:
         browser = Browser.Browser()
         print("___attemting to download order file___")
         browser.new_context(acceptDownloads=True)
         browser.new_page()
         order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
-        os.replace(order_file_download, ".\\orderFile.csv")
+        os.replace(order_file_download, ".\\" + filename)
     finally:
         browser.close_browser()
         print("___order file downloaded___")
@@ -33,14 +35,43 @@ def confirm_constitution_response():
     constitution_response = dialogs.request_response()
     return(constitution_response)
 
-def open_and_complete_form(url: str, constitutional_response: str):
+def ingest_csv_form_data(filename: str):
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        line_count = 0
+        for row in csv_reader:
+            if line_count == 0:
+                print(f'Column names are {", ".join(row)}')
+                line_count += 1
+            else:
+                print(f'Column values are {", ".join(row)}')
+                line_count += 1
+        print(f'Processed {line_count} lines.')
+        return(csv_reader)
+
+def open_and_complete_form(url: str, constitutional_response: str, csv_filename: str):
     try:
         browser = Browser.Browser()
         browser.open_browser(url)
         button_response = "text=" + constitutional_response
         browser.click(selector=button_response)
         time.sleep(2)
+        with open(csv_filename) as csv_file:
+            csv_reader = csv.reader(csv_file, delimiter=',')
+            line_count = 0
+            for row in csv_reader:
+                if line_count == 0:
+                    line_count += 1
+                else:
+                    print("Completing order " + row[0])
+                    browser.deselect_options(selector="id=head")
+                    browser.select_options_by(selector="id=head", attribute="value",  values=row[1])
+                    browser.fill_text(selector="id=address", txt=row[4])
+                    time.sleep(1)
+                    
     finally:
+        head_options = browser.get_select_options(selector="id=head")
+        print(head_options)
         browser.close_browser()
 
 
@@ -77,11 +108,11 @@ if __name__ == "__main__":
     try:
         print('STARTED: session started')
         print()
-        #download_order_file()
-        constitution_response = confirm_constitution_response()
-        cons_response_selected = constitution_response.get('dropdown_selected')
+        #download_order_file(filename=order_form_filename)
+        #constitution_response = confirm_constitution_response()
+        cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
         assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-        open_and_complete_form(url, constitutional_response=cons_response_selected)
+        open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
         print()
         print("COMPLETED: all tasks completed")
     except Exception as err:

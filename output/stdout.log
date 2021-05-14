@@ -1,5 +1,7 @@
 STARTED: session started
 
-TERMINATED: failed with error message= "Unable to continue as user selected 'No way!' on constitution form."
+Completing order 1
+[{'index': 0, 'value': '', 'label': '-- Choose a head --', 'selected': False}, {'index': 1, 'value': '1', 'label': 'Roll-a-thor head', 'selected': False}, {'index': 2, 'value': '2', 'label': 'Peanut crusher head', 'selected': False}, {'index': 3, 'value': '3', 'label': 'D.A.V.E head', 'selected': False}, {'index': 4, 'value': '4', 'label': 'Andy Roid head', 'selected': False}, {'index': 5, 'value': '5', 'label': 'Spanner mate head', 'selected': False}, {'index': 6, 'value': '6', 'label': 'Drillbit 2000 head', 'selected': False}]
+TERMINATED: failed with error message= "select_options_by() got an unexpected keyword argument 'values'"
 ENDED: session ended
 Goodbye world
