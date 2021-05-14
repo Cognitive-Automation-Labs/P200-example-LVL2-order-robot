@@ -1,5 +1,5 @@
 STARTED: session started
 
-
-COMPLETED: all tasks completed
+TERMINATED: failed with error message= "Unable to continue as user selected 'No way!' on constitution form."
 ENDED: session ended
+Goodbye world
