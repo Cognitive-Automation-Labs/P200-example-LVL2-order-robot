@@ -13,22 +13,22 @@ import csv
 url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
 order_form_filename = "orderFile.csv"
 run_archive_filepath = ".\\output\\run_archive\\"
+session_count = 3
+active_session = True
 
 def download_order_file(filename: str):
-    try:
         browser = Browser.Browser()
         print("___attemting to download order file___")
+        browser.new_browser(downloadsPath=".\\")
         browser.new_context(acceptDownloads=True)
         browser.new_page()
+        download_wait_promise = browser.promise_to_wait_for_download(".\\")
         order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
-        os.replace(order_file_download, ".\\" + filename)
-    except:
-        print("unable to download file")
-    finally:
+        browser.wait_for(download_wait_promise)
+        os.replace(order_file_download.get("suggestedFilename"), ".\\" + filename)
         browser.close_browser()
-        print("___order file downloaded___")
-        print()
         return(order_file_download)
+    
 
 
 def confirm_constitution_response():
@@ -57,6 +57,9 @@ def ingest_csv_form_data(filename: str):
 def open_and_complete_form(url: str, constitutional_response: str, csv_filename: str):
     try:
         browser = Browser.Browser()
+        browser.open_browser(url)
+        button_response = "text=" + constitutional_response
+        browser.click(selector=button_response)
         pdf = PDF()
         with open(csv_filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
@@ -68,9 +71,6 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
                     line_count += 1
                 else:
                     try:
-                        browser.open_browser(url)
-                        button_response = "text=" + constitutional_response
-                        browser.click(selector=button_response)
                         print("Completing order " + row[0])
                         #browser.click(selector="id=head")
                         #time.sleep(2)
@@ -91,8 +91,16 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
                         browser.click(selector=button_response)
                         print("Order complete")
                     except:
-                        print("Failed to process order")
+                        try:
+                            error_message = browser.get_text(selector='xpath=//div[@class="alert alert-danger"]')
+                        except:
+                            error_message = "unknown error message"
+                        finally:
+                            print("Failed to process order: " + error_message)
                         browser.close_browser()
+                        browser.open_browser(url)
+                        button_response = "text=" + constitutional_response
+                        browser.click(selector=button_response)
                     finally:
                         print("Getting next order...")
                     
@@ -102,48 +110,19 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
         finally:
             print("all orders complete")
 
-
-def complete_form():
-    try:
-        address = "hello world"
-        email = "tb@tylorbunting.com"
-        lastName = "Bunting"
-        phoneNumber = "04104010234"
-        companyRole = "Developer"
-        firstName = "Tylor"
-        company = "CA Labs"
-        browser = Browser.Browser()
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelAddress"]', address)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelLastName"]', lastName)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelEmail"]', email)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelPhone"]', phoneNumber)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelRole"]', companyRole)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelFirstName"]', firstName)
-        browser.fill_text('xpath=//input[@ng-reflect-name="labelCompanyName"]', company)
-        time.sleep(2)
-        browser.click('xpath=//input[@value="Submit"]')
-        time.sleep(2)
-    except:
-        print("___handling for exception___")
-    finally:
-        print()
-
-
 def end_session():
     print("Goodbye world")
 
 if __name__ == "__main__":
-    session_count = 0
-    active_session = True
     while active_session == True:
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            download_order_file(filename=order_form_filename)
+            #download_order_file(filename=order_form_filename)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            #open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
+            open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False

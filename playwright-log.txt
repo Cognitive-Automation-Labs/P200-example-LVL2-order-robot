@@ -1,2 +1,234 @@
-{"level":30,"time":"2021-05-17T20:34:39.811Z","pid":22364,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 62428"}
-{"level":30,"time":"2021-05-17T20:34:40.050Z","pid":22364,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: undefined"}
+{"level":30,"time":"2021-05-17T23:01:27.834Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 50322"}
+{"level":30,"time":"2021-05-17T23:01:29.161Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:29.174Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:01:29.178Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:29.372Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:01:29.372Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T23:01:31.212Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:01:31.174Z\n\nRSB-ROBO-ORDER-GE419UK1YS\n\nAddress 123\n\nHead: 1\nBody: 2\nLegs: 3\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:01:41.730Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Server In Flames Error"}
+{"level":30,"time":"2021-05-17T23:01:42.940Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:42.947Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:01:42.950Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:43.066Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:01:43.067Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:01:54.903Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Server Out Of Ink Error"}
+{"level":30,"time":"2021-05-17T23:01:56.099Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:56.109Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:01:56.114Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:01:56.235Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:01:56.235Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T23:01:58.020Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:01:57.990Z\n\nRSB-ROBO-ORDER-X55U7JVM4\n\nAddress 1\n\nHead: 2\nBody: 3\nLegs: 2\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:01:58.616Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:01:58.590Z\n\nRSB-ROBO-ORDER-98W4OFK15\n\nAddress 2\n\nHead: 3\nBody: 5\nLegs: 1\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:01:59.152Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:01:59.124Z\n\nRSB-ROBO-ORDER-0NRDFU4P7\n\nAddress 3\n\nHead: 1\nBody: 6\nLegs: 6\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:01:59.720Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:01:59.692Z\n\nRSB-ROBO-ORDER-BAIGTW1L5\n\nAddress 4\n\nHead: 5\nBody: 1\nLegs: 5\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:02:10.325Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Internal Server Error"}
+{"level":30,"time":"2021-05-17T23:02:11.698Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:11.706Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:02:11.709Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:11.837Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:02:11.837Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T23:02:13.698Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:13.661Z\n\nRSB-ROBO-ORDER-Y5W2O33GVB\n\nAddress 6\n\nHead: 3\nBody: 2\nLegs: 2\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:02:14.204Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:14.178Z\n\nRSB-ROBO-ORDER-3UORP6P45R\n\nAddress 7\n\nHead: 4\nBody: 4\nLegs: 2\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:02:14.747Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:14.718Z\n\nRSB-ROBO-ORDER-P8OMNXB499\n\nAddress 8\n\nHead: 6\nBody: 6\nLegs: 1\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:02:15.332Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:15.298Z\n\nRSB-ROBO-ORDER-XS77HZLKQB\n\nAddress 9\n\nHead: 1\nBody: 3\nLegs: 3\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:02:15.906Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:15.879Z\n\nRSB-ROBO-ORDER-ZXUPAMBF5\n\nAddress A\n\nHead: 1\nBody: 5\nLegs: 4\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+{"level":30,"time":"2021-05-17T23:02:16.504Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:16.478Z\n\nRSB-ROBO-ORDER-WKJES2PBXC\n\nAddress B\n\nHead: 3\nBody: 1\nLegs: 5\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:02:27.025Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Server Feeling Slightly Sick Error"}
+{"level":30,"time":"2021-05-17T23:02:28.434Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:28.442Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:02:28.445Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:28.578Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:02:28.579Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:02:40.226Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Who Came Up With These Annoying Errors?!"}
+{"level":30,"time":"2021-05-17T23:02:41.450Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:41.458Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:02:41.461Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:41.594Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:02:41.594Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:02:53.589Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Who Came Up With These Annoying Errors?!"}
+{"level":30,"time":"2021-05-17T23:02:54.842Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:54.851Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:02:54.855Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:02:54.988Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:02:54.988Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T23:02:57.295Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:02:57.255Z\n\nRSB-ROBO-ORDER-5L9FV78QD\n\nAddress F\n\nHead: 2\nBody: 5\nLegs: 1\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
+================= Original suppressed error =================
+page.waitForSelector: Timeout 10000ms exceeded.
+=========================== logs ===========================
+waiting for selector "id=receipt"
+============================================================
+Note: use DEBUG=pw:api environment variable to capture Playwright logs.
+Error
+    at Object.captureStackTrace (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\utils\stackTrace.js:50:19)
+    at Connection.sendMessageToServer (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\connection.js:65:48)
+    at Proxy.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:64:61)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:207:42
+    at Frame._wrapApiCall (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\channelOwner.js:77:34)
+    at Frame.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\frame.js:202:21)
+    at C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:60
+    at Page._attributeToPage (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:238:20)
+    at Page.waitForSelector (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\node_modules\playwright\lib\client\page.js:248:21)
+    at Object.<anonymous> (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25350:50)
+    at step (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25323:23)
+    at Object.next (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25304:53)
+    at fulfilled (C:\Users\bunto\AppData\Roaming\Python\Python37\site-packages\Browser\wrapper\index.js:25295:58)
+    at runMicrotasks (<anonymous>)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  name: 'TimeoutError'
+}
+=============================================================
+{"level":30,"time":"2021-05-17T23:03:07.872Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element xpath=//div[@class=\"alert alert-danger\"] containing Internal Server Error"}
+{"level":30,"time":"2021-05-17T23:03:09.194Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:03:09.201Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-17T23:03:09.205Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-17T23:03:09.346Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-17T23:03:09.347Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T23:03:11.080Z","pid":20004,"hostname":"DESKTOP-5NRNUEE","msg":"Retrieved text for element id=receipt containing Receipt\n2021-05-17T23:03:11.049Z\n\nRSB-ROBO-ORDER-60CSQ867G\n\nAddress H\n\nHead: 1\nBody: 1\nLegs: 5\n\nThank you for your order! We will ship your robot to you as soon as our warehouse robots gather the parts you ordered! You will receive your robot in no time!"}
