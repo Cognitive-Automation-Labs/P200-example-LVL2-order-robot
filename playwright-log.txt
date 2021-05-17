@@ -1,6 +1,2 @@
-{"level":30,"time":"2021-05-14T22:35:04.254Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 53013"}
-{"level":30,"time":"2021-05-14T22:35:06.654Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2021-05-14T22:35:06.674Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
-{"level":30,"time":"2021-05-14T22:35:06.678Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2021-05-14T22:35:07.125Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
-{"level":30,"time":"2021-05-14T22:35:07.125Z","pid":50680,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
+{"level":30,"time":"2021-05-17T20:34:39.811Z","pid":22364,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 62428"}
+{"level":30,"time":"2021-05-17T20:34:40.050Z","pid":22364,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: undefined"}
