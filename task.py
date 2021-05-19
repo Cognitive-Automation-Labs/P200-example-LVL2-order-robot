@@ -118,11 +118,11 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            #download_order_file(filename=order_form_filename)
+            download_order_file(filename=order_form_filename)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
+            #open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False
