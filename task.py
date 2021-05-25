@@ -12,7 +12,7 @@ import csv
 
 # variables
 url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
-order_form_filename = "orderFile.csv"
+order_form_filename = "orderFile2.csv"
 run_archive_filepath = os.getcwd() + "\\output\\run_archive\\"
 session_count = 3
 active_session = True
@@ -21,12 +21,13 @@ def download_order_file(filename: str):
         browser = Browser.Browser()
         fileSystem = FileSystem()
         print("___attemting to download order file___")
-        browser.new_browser(downloadsPath= '.\\')
+        browser.new_browser(downloadsPath= os.getcwd())
         browser.new_context(acceptDownloads=True)
         browser.new_page()
-        download_wait_promise = browser.promise_to_wait_for_download(".\\https___robotsparebinindustries.com_orders.csv")
+        download_wait_promise = browser.promise_to_wait_for_download("https___robotsparebinindustries.com_orders.csv")
         order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
         browser.wait_for(download_wait_promise)
+        print(str(order_file_download))
         print(order_file_download.get("suggestedFilename"))
         print(order_file_download.get("saveAs"))
         origin_path = order_file_download.get("saveAs") + "\\" + order_file_download.get("suggestedFilename")
@@ -128,11 +129,11 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            #download_order_file(filename=order_form_filename)
+            download_order_file(filename=order_form_filename)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
+            #open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False
