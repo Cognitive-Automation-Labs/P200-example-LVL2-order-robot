@@ -6,36 +6,43 @@ from Browser.utils.data_types import SelectAttribute
 from RPA.Dialogs import Dialogs
 from RPA.PDF import PDF
 from RPA.FileSystem import FileSystem
+from RPA.HTTP import HTTP
 import time
 import os
 import csv
 
 # variables
-url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
+url_path = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
 order_form_filename = "orderFile2.csv"
 run_archive_filepath = os.getcwd() + "\\output\\run_archive\\"
 session_count = 3
 active_session = True
 
-def download_order_file(filename: str):
-        browser = Browser.Browser()
-        fileSystem = FileSystem()
-        print("___attemting to download order file___")
-        browser.new_browser(downloadsPath= os.getcwd())
-        browser.new_context(acceptDownloads=True)
-        browser.new_page()
-        download_wait_promise = browser.promise_to_wait_for_download("https___robotsparebinindustries.com_orders.csv")
-        order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
-        browser.wait_for(download_wait_promise)
-        print(str(order_file_download))
-        print(order_file_download.get("suggestedFilename"))
-        print(order_file_download.get("saveAs"))
-        origin_path = order_file_download.get("saveAs") + "\\" + order_file_download.get("suggestedFilename")
-        fileSystem.copy_file(source= origin_path, destination= filename)
-        #os.replace(order_file_download.get("suggestedFilename"), filename)
-        browser.close_browser()
-        return(order_file_download)
-    
+def download_order_file(url: str, filename: str):
+    browser = Browser.Browser()
+    fileSystem = FileSystem()
+    browser.new_browser(downloadsPath= os.getcwd())
+    browser.new_context(acceptDownloads=True)
+    browser.new_page()
+    http = HTTP()
+    http.download(url= url, target_file=os.getcwd() + filename, overwrite=True, verify= False)
+    fileSystem.wait_until_created(filename)
+
+    # fileSystem = FileSystem()
+    # print("___attemting to download order file___")
+    # #download_wait_promise = browser.promise_to_wait_for_download("https___robotsparebinindustries.com_orders.csv")
+    # order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
+    # orders_csv_filepath = order_file_download.get("saveAs") + "\\" + order_file_download.get("suggestedFilename")
+    # #browser.wait_for(download_wait_promise)
+    # print(str(order_file_download))
+    # print(order_file_download.get("suggestedFilename"))
+    # print(order_file_download.get("saveAs"))
+    # print(orders_csv_filepath)
+    # fileSystem.wait_until_created(orders_csv_filepath)
+    # fileSystem.copy_file(source= orders_csv_filepath, destination= filename)
+    # #os.replace(order_file_download.get("suggestedFilename"), filename)
+    # browser.close_browser()
+    # return(order_file_download)
 
 
 def confirm_constitution_response():
@@ -129,7 +136,7 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            download_order_file(filename=order_form_filename)
+            download_order_file(url=url_path, filename=order_form_filename)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."

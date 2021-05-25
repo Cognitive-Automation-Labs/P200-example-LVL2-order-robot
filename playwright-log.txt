@@ -1,8 +1,6 @@
-{"level":30,"time":"2021-05-25T03:21:14.477Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 54037"}
-{"level":30,"time":"2021-05-25T03:21:16.097Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2021-05-25T03:21:16.105Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
-{"level":30,"time":"2021-05-25T03:21:16.110Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
-{"level":30,"time":"2021-05-25T03:21:16.230Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
-{"level":30,"time":"2021-05-25T03:21:16.231Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
-{"level":30,"time":"2021-05-25T03:21:16.737Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"Suggested file name: https___robotsparebinindustries.com_orders.csv and save as path: c:\\Users\\bunto\\OneDrive\\Documents\\GitHub\\TB005_order_robot_level_2\\1a5d7530-29f0-4184-8607-0c1bffe240f6"}
-{"level":30,"time":"2021-05-25T03:21:16.739Z","pid":25148,"hostname":"DESKTOP-5NRNUEE","msg":"suggestedFilename: https___robotsparebinindustries.com_orders.csv saveAs path: c:\\Users\\bunto\\OneDrive\\Documents\\GitHub\\TB005_order_robot_level_2\\1a5d7530-29f0-4184-8607-0c1bffe240f6"}
+{"level":30,"time":"2021-05-25T07:07:34.467Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"Listening on 52954"}
+{"level":30,"time":"2021-05-25T07:07:36.167Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-25T07:07:36.174Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active context"}
+{"level":30,"time":"2021-05-25T07:07:36.179Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"currentBrowser: [object Object]"}
+{"level":30,"time":"2021-05-25T07:07:36.263Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"Video path: undefined"}
+{"level":30,"time":"2021-05-25T07:07:36.263Z","pid":11908,"hostname":"DESKTOP-5NRNUEE","msg":"Changed active page"}
