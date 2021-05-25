@@ -13,8 +13,8 @@ dependencies:
   - pip:
     # Define pip packages here. 
     # https://pypi.org/
-    - rpaframework==9.5.0 # https://rpaframework.org/releasenotes.html
-    - robotframework-browser==4.5.0
+    - rpaframework==10.0.5 # https://rpaframework.org/releasenotes.html
+    - robotframework-browser==5.0.0
 
 rccPostInstall:
   - rfbrowser init

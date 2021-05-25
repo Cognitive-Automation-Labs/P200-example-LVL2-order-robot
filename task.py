@@ -5,6 +5,7 @@ import Browser
 from Browser.utils.data_types import SelectAttribute
 from RPA.Dialogs import Dialogs
 from RPA.PDF import PDF
+from RPA.FileSystem import FileSystem
 import time
 import os
 import csv
@@ -12,20 +13,25 @@ import csv
 # variables
 url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
 order_form_filename = "orderFile.csv"
-run_archive_filepath = ".\\output\\run_archive\\"
+run_archive_filepath = os.getcwd() + "\\output\\run_archive\\"
 session_count = 3
 active_session = True
 
 def download_order_file(filename: str):
         browser = Browser.Browser()
+        fileSystem = FileSystem()
         print("___attemting to download order file___")
-        browser.new_browser(downloadsPath=".\\")
+        browser.new_browser(downloadsPath= '.\\')
         browser.new_context(acceptDownloads=True)
         browser.new_page()
-        download_wait_promise = browser.promise_to_wait_for_download(".\\")
+        download_wait_promise = browser.promise_to_wait_for_download(".\\https___robotsparebinindustries.com_orders.csv")
         order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
         browser.wait_for(download_wait_promise)
-        os.replace(order_file_download.get("suggestedFilename"), ".\\" + filename)
+        print(order_file_download.get("suggestedFilename"))
+        print(order_file_download.get("saveAs"))
+        origin_path = order_file_download.get("saveAs") + "\\" + order_file_download.get("suggestedFilename")
+        fileSystem.copy_file(source= origin_path, destination= filename)
+        #os.replace(order_file_download.get("suggestedFilename"), filename)
         browser.close_browser()
         return(order_file_download)
     
@@ -61,6 +67,7 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
         button_response = "text=" + constitutional_response
         browser.click(selector=button_response)
         pdf = PDF()
+        fileSystem = FileSystem()
         with open(csv_filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             line_count = 0
@@ -85,18 +92,21 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
                         browser.click(selector="id=preview")
                         browser.click(selector="id=order")
                         receipt_html_text = browser.get_text(selector="id=receipt")
-                        browser.take_screenshot(selector="id=robot-preview-image", filename="robot-preview-image-"+str(row[0]))
-                        pdf.html_to_pdf(receipt_html_text, run_archive_filepath+"receipt_file_"+str(row[0]))
+                        robot_previous_filepath = run_archive_filepath + "robot_preview_image_" + str(row[0]) + ".png"
+                        browser.take_screenshot(selector="id=robot-preview-image",  filename= robot_previous_filepath)
+                        pdf.html_to_pdf(receipt_html_text, run_archive_filepath + "receipt_file_"+str(row[0]))
                         browser.click(selector="id=order-another")
+                        fileSystem.wait_until_created(robot_previous_filepath)
+                        pdf.add_watermark_image_to_pdf(image_path= robot_previous_filepath, output_path= run_archive_filepath + "receipt_file_"+str(row[0])+"_robot_image", source_path= run_archive_filepath + "receipt_file_"+str(row[0]))
                         browser.click(selector=button_response)
                         print("Order complete")
-                    except:
+                    except Exception as errorMessage:
                         try:
                             error_message = browser.get_text(selector='xpath=//div[@class="alert alert-danger"]')
                         except:
-                            error_message = "unknown error message"
+                            error_message = errorMessage
                         finally:
-                            print("Failed to process order: " + error_message)
+                            print("Failed to process order: " + str(error_message))
                         browser.close_browser()
                         browser.open_browser(url)
                         button_response = "text=" + constitutional_response
@@ -118,11 +128,11 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            download_order_file(filename=order_form_filename)
+            #download_order_file(filename=order_form_filename)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            #open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
+            open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False
