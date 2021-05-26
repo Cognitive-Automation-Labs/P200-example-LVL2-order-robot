@@ -7,43 +7,42 @@ from RPA.Dialogs import Dialogs
 from RPA.PDF import PDF
 from RPA.FileSystem import FileSystem
 from RPA.HTTP import HTTP
-import time
+from RPA.Archive import Archive
+from RPA.Robocloud.Secrets import Secrets
 import os
 import csv
+import datetime
 
 # variables
-url_path = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
-order_form_filename = "orderFile2.csv"
-run_archive_filepath = os.getcwd() + "\\output\\run_archive\\"
+website_url = "https://robotsparebinindustries.com/#/robot-order" #"https://usyd.starrezhousing.com/StarRezWeb/"
+download_url = "https://robotsparebinindustries.com/orders.csv"
+order_form_filename = "orderFile.csv"
+run_archive_filepath = os.getcwd() + "\\output\\run_archive"
+download_path = os.getcwd() + "\\output\\downloads\\"
 session_count = 3
 active_session = True
 
-def download_order_file(url: str, filename: str):
+def get_and_display_secrets(credential: str):
+    secrets = Secrets()
+    user_details = secrets.get_secret(credential)["username"]
+    print(user_details)
+
+def download_order_file(url: str, filename: str, download_path: str):
+    print("___attemting to download order file___")
     browser = Browser.Browser()
     fileSystem = FileSystem()
-    browser.new_browser(downloadsPath= os.getcwd())
+    fileSystem.create_directory(download_path)
+    browser.new_browser(downloadsPath= download_path)
     browser.new_context(acceptDownloads=True)
     browser.new_page()
-    http = HTTP()
-    http.download(url= url, target_file=os.getcwd() + filename, overwrite=True, verify= False)
-    fileSystem.wait_until_created(filename)
-
-    # fileSystem = FileSystem()
-    # print("___attemting to download order file___")
-    # #download_wait_promise = browser.promise_to_wait_for_download("https___robotsparebinindustries.com_orders.csv")
-    # order_file_download = browser.download("https://robotsparebinindustries.com/orders.csv")
-    # orders_csv_filepath = order_file_download.get("saveAs") + "\\" + order_file_download.get("suggestedFilename")
-    # #browser.wait_for(download_wait_promise)
-    # print(str(order_file_download))
-    # print(order_file_download.get("suggestedFilename"))
-    # print(order_file_download.get("saveAs"))
-    # print(orders_csv_filepath)
-    # fileSystem.wait_until_created(orders_csv_filepath)
-    # fileSystem.copy_file(source= orders_csv_filepath, destination= filename)
-    # #os.replace(order_file_download.get("suggestedFilename"), filename)
-    # browser.close_browser()
-    # return(order_file_download)
-
+    order_file_download = browser.download(url)
+    orders_csv_filepath_origin = order_file_download.get("saveAs")
+    orders_csv_filepath = download_path + filename
+    fileSystem.wait_until_created(orders_csv_filepath_origin)
+    fileSystem.copy_file(source= orders_csv_filepath_origin, destination= orders_csv_filepath)
+    browser.close_browser()
+    print("_____complete download____")
+    return(orders_csv_filepath)
 
 def confirm_constitution_response():
     dialogs = Dialogs()
@@ -76,11 +75,14 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
         browser.click(selector=button_response)
         pdf = PDF()
         fileSystem = FileSystem()
+        print(csv_filename)
         with open(csv_filename) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             line_count = 0
             if not os.path.exists(run_archive_filepath):
-                os.makedirs(run_archive_filepath)                
+                os.makedirs(run_archive_filepath)   
+            else:
+                fileSystem.empty_directory(run_archive_filepath) 
             for row in csv_reader:
                 if line_count == 0:
                     line_count += 1
@@ -100,13 +102,16 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
                         browser.click(selector="id=preview")
                         browser.click(selector="id=order")
                         receipt_html_text = browser.get_text(selector="id=receipt")
-                        robot_previous_filepath = run_archive_filepath + "robot_preview_image_" + str(row[0]) + ".png"
-                        browser.take_screenshot(selector="id=robot-preview-image",  filename= robot_previous_filepath)
-                        pdf.html_to_pdf(receipt_html_text, run_archive_filepath + "receipt_file_"+str(row[0]))
+                        robot_previous_filepath = run_archive_filepath + "\\robot_preview_image_" + str(row[0]) + ".png"
+                        browser.wait_for_elements_state(selector="id=robot-preview-image")
+                        browser.take_screenshot(selector="id=robot-preview-image",  filename= robot_previous_filepath, fullPage= True)
+                        receipt_file_path = run_archive_filepath + "\\receipt_file_"+str(row[0])
+                        pdf.html_to_pdf(receipt_html_text, receipt_file_path + ".pdf")
                         browser.click(selector="id=order-another")
                         fileSystem.wait_until_created(robot_previous_filepath)
-                        pdf.add_watermark_image_to_pdf(image_path= robot_previous_filepath, output_path= run_archive_filepath + "receipt_file_"+str(row[0])+"_robot_image", source_path= run_archive_filepath + "receipt_file_"+str(row[0]))
                         browser.click(selector=button_response)
+                        pdf.add_watermark_image_to_pdf(image_path= robot_previous_filepath, output_path= receipt_file_path + "_robot_image.pdf", source_path= receipt_file_path + ".pdf")
+                        fileSystem.wait_until_created(path= receipt_file_path + "_robot_image.pdf")
                         print("Order complete")
                     except Exception as errorMessage:
                         try:
@@ -128,6 +133,12 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
         finally:
             print("all orders complete")
 
+def archive_files(folder_path: str):
+    print(folder_path)
+    archive = Archive()
+    archive.archive_folder_with_zip(folder=folder_path, archive_name= ".\\output\\run-archive-" + str(datetime.date.today()) +".zip", recursive=True)
+
+
 def end_session():
     print("Goodbye world")
 
@@ -136,11 +147,13 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
-            download_order_file(url=url_path, filename=order_form_filename)
+            get_and_display_secrets(credential= "robotsparebin_cred")
+            #download_order_file(url=download_url, filename=order_form_filename, download_path= download_path)
             #constitution_response = confirm_constitution_response()
             cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            #open_and_complete_form(url, constitutional_response=cons_response_selected, csv_filename=order_form_filename)
+            #open_and_complete_form(website_url, constitutional_response=cons_response_selected, csv_filename= download_path+order_form_filename)
+            #archive_files(folder_path= run_archive_filepath)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False

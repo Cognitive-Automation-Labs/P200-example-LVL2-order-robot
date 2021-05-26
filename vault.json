@@ -1,0 +1,5 @@
+{
+  "vault": {
+    "ENV_VAR_EXAMPLE": "Env Variable Hello World"
+  }
+}
