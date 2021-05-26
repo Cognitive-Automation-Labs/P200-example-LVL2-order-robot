@@ -10,6 +10,7 @@ from RPA.HTTP import HTTP
 from RPA.Archive import Archive
 from RPA.Robocloud.Secrets import Secrets
 import os
+import json
 import csv
 import datetime
 
@@ -21,6 +22,12 @@ run_archive_filepath = os.getcwd() + "\\output\\run_archive"
 download_path = os.getcwd() + "\\output\\downloads\\"
 session_count = 3
 active_session = True
+
+def set_development_environment_variables():
+    with open("./devdata/env.json") as env_in:
+        env_file = json.load(env_in)
+        for key in env_file:
+            os.environ[key] = env_file[key]
 
 def get_and_display_secrets(credential: str):
     secrets = Secrets()
@@ -145,6 +152,7 @@ if __name__ == "__main__":
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
+            set_development_environment_variables()
             get_and_display_secrets(credential= "robotsparebin_cred")
             download_order_file(url=download_url, filename=order_form_filename, download_path= download_path)
             constitution_response = confirm_constitution_response()
