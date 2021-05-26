@@ -1,4 +1,70 @@
 STARTED: session 3 started
 
+hello
 ___attemting to download order file___
-TERMINATED: failed with error message= "Error: .saveAs: EPERM: operation not permitted, copyfile 'C:\Users\bunto\AppData\Local\robocorp\live\e7d68c053b473a56\lib\site-packages\Browser\wrapper\645b1bb3-2b1e-4f4c-aaf0-34195980dbd6' -> 'C:\Users\bunto\AppData\Local\robocorp\live\e7d68c053b473a56\lib\site-packages\Browser\wrapper'"
+_____complete download____
+c:\Users\bunto\OneDrive\Documents\GitHub\TB005_order_robot_level_2\output\downloads\orderFile.csv
+Completing order 1
+Failed to process order: Error: Could Not Load Error Message
+Getting next order...
+Completing order 2
+Order complete
+Getting next order...
+Completing order 3
+Order complete
+Getting next order...
+Completing order 4
+Order complete
+Getting next order...
+Completing order 5
+Order complete
+Getting next order...
+Completing order 6
+Failed to process order: My Dog Ate My Server Error
+Getting next order...
+Completing order 7
+Failed to process order: Submit Button Stuck Error
+Getting next order...
+Completing order 8
+Order complete
+Getting next order...
+Completing order 9
+Failed to process order: Bear In Server Room Error
+Getting next order...
+Completing order 10
+Order complete
+Getting next order...
+Completing order 11
+Failed to process order: Server In Flames Error
+Getting next order...
+Completing order 12
+Order complete
+Getting next order...
+Completing order 13
+Order complete
+Getting next order...
+Completing order 14
+Order complete
+Getting next order...
+Completing order 15
+Failed to process order: Server Feeling Slightly Sick Error
+Getting next order...
+Completing order 16
+Order complete
+Getting next order...
+Completing order 17
+Failed to process order: Server Feeling Slightly Sick Error
+Getting next order...
+Completing order 18
+Order complete
+Getting next order...
+Completing order 19
+Order complete
+Getting next order...
+Completing order 20
+Failed to process order: Server Room Flooded Error
+Getting next order...
+all orders complete
+c:\Users\bunto\OneDrive\Documents\GitHub\TB005_order_robot_level_2\output\run_archive
+
+COMPLETED: all tasks completed

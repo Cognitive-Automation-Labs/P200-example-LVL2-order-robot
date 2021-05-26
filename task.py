@@ -46,11 +46,9 @@ def download_order_file(url: str, filename: str, download_path: str):
 
 def confirm_constitution_response():
     dialogs = Dialogs()
-    dialogs.create_form()
-    dialogs.add_title(title="Confirmation of Constitutional Rights")
-    dialogs.add_text(value="Before we continue, you must first confirm the below with regards to the order form that the bot completes.")
-    dialogs.add_dropdown(element_id="dropdown_selected", label="BY USING THIS ORDER FORM, I GIVE UP ALL MY CONSTITUTIONAL RIGHTS FOR THE BENEFIT OF ROBOTSPAREBIN INDUSTRIES INC.", options=["OK", "Yep", "I guess so...", "No way!"])
-    constitution_response = dialogs.request_response()
+    dialogs.add_text(text="Before we continue, you must first confirm the below with regards to the order form that the bot completes.")
+    dialogs.add_drop_down(name="dropdown_selected", label="Do you agree to give your constitutional rights to ROBOTSPAREBIN INDUSTRIES INC.?", options=["OK", "Yep", "I guess so...", "No way!"])
+    constitution_response = dialogs.run_dialog(title="Confirmation of Constitutional Rights")
     return(constitution_response)
 
 def ingest_csv_form_data(filename: str):
@@ -148,12 +146,12 @@ if __name__ == "__main__":
             print('STARTED: session '+str(session_count)+' started')
             print()
             get_and_display_secrets(credential= "robotsparebin_cred")
-            #download_order_file(url=download_url, filename=order_form_filename, download_path= download_path)
-            #constitution_response = confirm_constitution_response()
-            cons_response_selected = "OK" #constitution_response.get('dropdown_selected')
+            download_order_file(url=download_url, filename=order_form_filename, download_path= download_path)
+            constitution_response = confirm_constitution_response()
+            cons_response_selected = constitution_response.get('dropdown_selected')
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
-            #open_and_complete_form(website_url, constitutional_response=cons_response_selected, csv_filename= download_path+order_form_filename)
-            #archive_files(folder_path= run_archive_filepath)
+            open_and_complete_form(website_url, constitutional_response=cons_response_selected, csv_filename= download_path+order_form_filename)
+            archive_files(folder_path= run_archive_filepath)
             print()
             print("COMPLETED: all tasks completed")
             active_session == False

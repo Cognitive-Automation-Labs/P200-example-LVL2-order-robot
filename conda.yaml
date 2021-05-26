@@ -15,7 +15,6 @@ dependencies:
     # https://pypi.org/
     - rpaframework==10.0.5 # https://rpaframework.org/releasenotes.html
     - robotframework-browser==5.0.0
-    - robotframework-sshlibrary==3.6.0
 
 rccPostInstall:
   - rfbrowser init
