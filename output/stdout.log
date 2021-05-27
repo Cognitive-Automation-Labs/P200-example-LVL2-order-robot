@@ -1,5 +1,6 @@
 STARTED: session 3 started
 
 hello
-
-COMPLETED: all tasks completed
+___attemting to download order file___
+Unable to download order file: Stream removed
+TERMINATED: failed with error message= "failed to connect to all addresses"

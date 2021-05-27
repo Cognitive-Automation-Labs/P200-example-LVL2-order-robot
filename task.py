@@ -21,7 +21,7 @@ order_form_filename = "orderFile.csv"
 run_archive_filepath = os.getcwd() + "\\output\\run_archive"
 download_path = os.getcwd() + "\\output\\downloads\\"
 session_count = 3
-active_session = True
+session_complete = False
 
 def set_development_environment_variables():
     with open("./devdata/env.json") as env_in:
@@ -36,27 +36,37 @@ def get_and_display_secrets(credential: str):
 
 def download_order_file(url: str, filename: str, download_path: str):
     print("___attemting to download order file___")
-    browser = Browser.Browser()
-    fileSystem = FileSystem()
-    fileSystem.create_directory(download_path)
-    browser.new_browser(downloadsPath= download_path)
-    browser.new_context(acceptDownloads=True)
-    browser.new_page()
-    order_file_download = browser.download(url)
-    orders_csv_filepath_origin = order_file_download.get("saveAs")
-    orders_csv_filepath = download_path + filename
-    fileSystem.wait_until_created(orders_csv_filepath_origin)
-    fileSystem.copy_file(source= orders_csv_filepath_origin, destination= orders_csv_filepath)
-    browser.close_browser()
+    try:
+        browser = Browser.Browser()
+        fileSystem = FileSystem()
+        fileSystem.create_directory(download_path)
+        browser.new_browser(downloadsPath= download_path)
+        browser.new_context(acceptDownloads=True)
+        browser.new_page()
+        order_file_download = browser.download(url)
+        orders_csv_filepath_origin = order_file_download.get("saveAs")
+        orders_csv_filepath = download_path + filename
+        fileSystem.wait_until_created(orders_csv_filepath_origin)
+        fileSystem.copy_file(source= orders_csv_filepath_origin, destination= orders_csv_filepath)
+    except Exception as errorMessage:
+        print("Unable to download order file: " + str(errorMessage))
+    finally:
+        browser.close_browser()
+    
     print("_____complete download____")
     return(orders_csv_filepath)
 
 def confirm_constitution_response():
-    dialogs = Dialogs()
-    dialogs.add_text(text="Before we continue, you must first confirm the below with regards to the order form that the bot completes.")
-    dialogs.add_drop_down(name="dropdown_selected", label="Do you agree to give your constitutional rights to ROBOTSPAREBIN INDUSTRIES INC.?", options=["OK", "Yep", "I guess so...", "No way!"])
-    constitution_response = dialogs.run_dialog(title="Confirmation of Constitutional Rights")
-    return(constitution_response)
+    try:
+        dialogs = Dialogs()
+        dialogs.add_text(text="Before we continue, you must first agree to give your constitutional rights to ROBOTSPAREBIN INDUSTRIES INC.?")
+        dialogs.add_drop_down(name="dropdown_selected", options=["OK", "Yep", "I guess so...", "No way!"])
+        constitution_response = dialogs.run_dialog(title="Confirmation of Constitutional Rights", width= 480, height= 500)
+    except Exception as errorMessage:
+        print("Unable to run dialogs: " + str(errorMessage))
+    finally:
+        dialogs.close_all_dialogs()
+        return(constitution_response)
 
 def ingest_csv_form_data(filename: str):
     with open(filename) as csv_file:
@@ -148,7 +158,7 @@ def end_session():
     print("Goodbye world")
 
 if __name__ == "__main__":
-    while active_session == True:
+    while session_complete == False:
         try:
             print('STARTED: session '+str(session_count)+' started')
             print()
@@ -160,16 +170,15 @@ if __name__ == "__main__":
             assert cons_response_selected != "No way!", "Unable to continue as user selected 'No way!' on constitution form."
             open_and_complete_form(website_url, constitutional_response=cons_response_selected, csv_filename= download_path+order_form_filename)
             archive_files(folder_path= run_archive_filepath)
-            print()
             print("COMPLETED: all tasks completed")
-            active_session == False
+            session_complete == True
             break
         except Exception as err:
             print('''TERMINATED: failed with error message= "''' + str(err) + '''"''')
         finally:
             session_count = session_count + 1
             if session_count > 3:
-                active_session == False
+                session_complete == True
                 break
             print("ENDED: session "+str(session_count)+" ended")
             end_session()
