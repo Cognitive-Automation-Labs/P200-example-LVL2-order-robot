@@ -52,9 +52,7 @@ def download_order_file(url: str, filename: str, download_path: str):
         print("Unable to download order file: " + str(errorMessage))
     finally:
         browser.close_browser()
-    
     print("_____complete download____")
-    return(orders_csv_filepath)
 
 def confirm_constitution_response():
     try:
