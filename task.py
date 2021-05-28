@@ -51,7 +51,7 @@ def download_order_file(url: str, filename: str, download_path: str):
     except Exception as errorMessage:
         print("Unable to download order file: " + str(errorMessage))
     finally:
-        browser.close_browser()
+        browser.playwright.close()
     print("_____complete download____")
 
 def confirm_constitution_response():
@@ -83,7 +83,8 @@ def ingest_csv_form_data(filename: str):
 def open_and_complete_form(url: str, constitutional_response: str, csv_filename: str):
     try:
         browser = Browser.Browser()
-        browser.open_browser(url)
+        browser.new_browser(headless=False)
+        browser.new_page(url)
         button_response = "text=" + constitutional_response
         browser.click(selector=button_response)
         pdf = PDF()
@@ -133,16 +134,18 @@ def open_and_complete_form(url: str, constitutional_response: str, csv_filename:
                             error_message = errorMessage
                         finally:
                             print("Failed to process order: " + str(error_message))
-                        browser.close_browser()
-                        browser.open_browser(url)
-                        button_response = "text=" + constitutional_response
-                        browser.click(selector=button_response)
+                            browser.playwright.close()
+                            browser.new_browser(headless=False)
+                            browser.new_page(url)
+                            button_response = "text=" + constitutional_response
+                            browser.click(selector=button_response)
+
                     finally:
                         print("Getting next order...")
                     
     finally:
         try:
-            browser.close_browser()
+            browser.playwright.close()
         finally:
             print("all orders complete")
 

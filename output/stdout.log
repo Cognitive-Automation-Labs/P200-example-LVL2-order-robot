@@ -5,7 +5,7 @@ ___attemting to download order file___
 _____complete download____
 c:\Users\bunto\OneDrive\Documents\GitHub\TB005_order_robot_level_2\output\downloads\orderFile.csv
 Completing order 1
-Failed to process order: Server Feeling Slightly Sick Error
+Order complete
 Getting next order...
 Completing order 2
 Order complete
@@ -17,53 +17,7 @@ Completing order 4
 Order complete
 Getting next order...
 Completing order 5
-Order complete
-Getting next order...
-Completing order 6
-Failed to process order: Server In Flames Error
-Getting next order...
-Completing order 7
-Order complete
-Getting next order...
-Completing order 8
-Failed to process order: Request Got Lost Error
-Getting next order...
-Completing order 9
-Order complete
-Getting next order...
-Completing order 10
-Order complete
-Getting next order...
-Completing order 11
-Order complete
-Getting next order...
-Completing order 12
-Order complete
-Getting next order...
-Completing order 13
-Order complete
-Getting next order...
-Completing order 14
-Order complete
-Getting next order...
-Completing order 15
-Order complete
-Getting next order...
-Completing order 16
-Order complete
-Getting next order...
-Completing order 17
-Order complete
-Getting next order...
-Completing order 18
-Failed to process order: Server Feeling Slightly Sick Error
-Getting next order...
-Completing order 19
-Order complete
-Getting next order...
-Completing order 20
-Order complete
+Failed to process order: Error: Could Not Load Error Message
 Getting next order...
 all orders complete
-c:\Users\bunto\OneDrive\Documents\GitHub\TB005_order_robot_level_2\output\run_archive
-COMPLETED: all tasks completed
+TERMINATED: failed with error message= "Cannot invoke RPC on closed channel!"
