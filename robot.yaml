@@ -1,11 +1,17 @@
 tasks:
-  entrypoint:
+  do everything:
     command:
       - python
       - task.py
+  do nothing:
+    command:
+      - python
+      - print("hello world")
 
-condaConfigFile: conda.yaml
+condaConfigFile: config/conda.yaml
+
 artifactsDir: output
+
 ignoreFiles:
   - .gitattributes
 PATH:
